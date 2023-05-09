@@ -5,5 +5,8 @@
 {% endblock %}
 
 {% block body %}
-<H1>Hello, Index Page</H1>
+    <H1>Hello, {% if current_user.is_authenticated %} {{ current_user.username }}
+        {% else %} AnonimUser
+    {% endif %}
+    </H1>
 {% endblock %}
