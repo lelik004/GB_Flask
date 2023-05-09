@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Users #{{ user.id }}detail
+{% endblock %}
+
+{% block body %}
+    <div>
+        <a href="{{ url_for('users_app.list') }}"> Обратно к списку пользователей </a>
+    </div>
+    <H2>Информация о пользователе</H2>
+    <p>Имя: {{ user.username }}
+        {% if user.is_staff %}
+            <span class="badge bg-secondary">staff</span>
+        {% endif %}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>is_authenticated: {{ user.is_authenticated }}</p>
+    <p>{% if current_user.is_anonymous %} Anonim {% endif %}</p>
+
+{% endblock %}
